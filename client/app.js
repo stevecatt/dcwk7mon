@@ -9,24 +9,28 @@ let url = 'http://localhost:3000/todos'
 let taskItems= []
 
 getTasksBtn.addEventListener('click',function(){
+    
     fetch (url)
     
   
         .then(response => response.json())
         .then(json => json.map(task=>{
-             taskItems.push(`
+             console.log(json)
+            taskItems.push(`
              <h3> Task for the day</h3>
             <li>Title ${task.title}</li>
             <li>Priority ${task.priority}</li>
             <li>Created ${task.dateCreated}</li>
             <li>Completed ${task.dateCompleted}</li>
-            <li>Completed? ${task.isComplete}</li>
+            <li> is Completed? ${task.isCompleted}</li>
             `
             
         )
 
         }))
         taskOut.innerHTML= taskItems.join("")
+        taskItems = []
+        
 })
 
 submitBtn.addEventListener("click", function(){

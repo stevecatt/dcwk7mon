@@ -55,8 +55,9 @@ app.post("/todos",function(req,res){
     let isCompleted = req.body.isCompleted
     let todo = {title: title, priority: priority, dateCreated: dateCreated, dateCompleted:dateCompleted, isCompleted:isCompleted}
     Todos.push(todo)
+    console.log(todo)
 
-    res.send(Todos)
+    res.send(todo)
 })
 
 /*app.post('/todos',function(req,res){
